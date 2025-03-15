@@ -21,7 +21,7 @@ print(f"Thiết bị sử dụng: {device}")
 
 # Tải mô hình CLIP
 try:
-    model, preprocess = clip.load("ViT-L/14", device=device)
+    model, preprocess = clip.load("ViT-B/32", device=device)
     print("Đã tải mô hình CLIP thành công!")
 except Exception as e:
     print(f"Lỗi khi tải mô hình CLIP: {e}")

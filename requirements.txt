@@ -1,9 +1,10 @@
  flask 
  torch 
- clip 
+#  clip 
  faiss-cpu 
  pillow 
  matplotlib 
  numpy 
  requests
  gunicorn
+ git+https://github.com/openai/CLIP.git

@@ -15,13 +15,13 @@ from urllib.parse import unquote
 
 app = Flask(__name__)
 
-device = "cpu"  # Ép buộc dùng CPU
+# Thiết bị (ép buộc CPU nếu không chắc chắn có GPU)
+device = "cpu" 
 print(f"Thiết bị sử dụng: {device}")
-model, preprocess = clip.load("RN50", device=device, torch_dtype=torch.float16)
 
-# Tải mô hình CLIP
+# Tải mô hình CLIP nhẹ hơn với float16
 try:
-    model, preprocess = clip.load("ViT-B/32", device=device)
+    model, preprocess = clip.load("RN50", device=device, torch_dtype=torch.float16)
     print("Đã tải mô hình CLIP thành công!")
 except Exception as e:
     print(f"Lỗi khi tải mô hình CLIP: {e}")

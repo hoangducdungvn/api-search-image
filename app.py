@@ -15,9 +15,9 @@ from urllib.parse import unquote
 
 app = Flask(__name__)
 
-# Thiết lập thiết bị (CPU hoặc GPU nếu có)
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cpu"  # Ép buộc dùng CPU
 print(f"Thiết bị sử dụng: {device}")
+model, preprocess = clip.load("RN50", device=device, torch_dtype=torch.float16)
 
 # Tải mô hình CLIP
 try:

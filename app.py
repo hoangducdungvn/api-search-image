@@ -59,17 +59,17 @@ def get_images_from_api():
                     continue
 
                 item_id = item.get("id") if item.get("id") is not None else f"api_image_{idx}"
-                print(f"Xử lý item (ID: {item_id}, dữ liệu: {image_str[:50]}...)")
+                # print(f"Xử lý item (ID: {item_id}, dữ liệu: {image_str[:50]}...)")
 
                 if image_str.startswith("data:image/png;base64,"):
                     image_base64 = image_str[len("data:image/png;base64,"):]
                     images.append({"id": item_id, "image_base64": image_base64, "type": "image/png"})
-                    print(f"Đã thêm ảnh PNG (ID: {item_id})")
+                    # print(f"Đã thêm ảnh PNG (ID: {item_id})")
                 elif image_str.startswith(("data:image/jpeg;base64,", "data:image/jpg;base64,")):
                     prefix = "data:image/jpeg;base64," if image_str.startswith("data:image/jpeg;base64,") else "data:image/jpg;base64,"
                     image_base64 = image_str[len(prefix):]
                     images.append({"id": item_id, "image_base64": image_base64, "type": "image/jpeg"})
-                    print(f"Đã thêm ảnh JPEG (ID: {item_id})")
+                    # print(f"Đã thêm ảnh JPEG (ID: {item_id})")
                 else:
                     print(f"Bỏ qua mục không phải ảnh PNG hoặc JPEG (ID: {item_id}): {image_str[:50]}...")
             print(f"Tổng số ảnh PNG/JPEG tìm thấy: {len(images)}")

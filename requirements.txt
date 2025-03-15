@@ -1,0 +1,9 @@
+ flask 
+ torch 
+ clip 
+ faiss-cpu 
+ pillow 
+ matplotlib 
+ numpy 
+ requests
+ gunicorn
